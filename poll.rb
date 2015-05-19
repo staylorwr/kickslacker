@@ -34,7 +34,7 @@ if backers > 0
     payload= {
       text: "New Backers on <#{ENV['KICKSTARTER_URL']}|#{title}>",
       icon_url: "https://www.kickstarter.com/download/kickstarter-logo-k-color.png",
-      channel: ENV['SLACK_ROOM'],
+      channel: "##{ENV['SLACK_ROOM']}",
       username: 'Kickstarter',
       attachments: [
         {
@@ -55,6 +55,9 @@ if backers > 0
         }
       ]
     }
+
+    puts JSON.dump(payload)
+    puts URI.parse(ENV['SLACK_URL'])
 
     Net::HTTP.post_form(URI.parse(ENV['SLACK_URL']), {payload: JSON.dump(payload)})
 
