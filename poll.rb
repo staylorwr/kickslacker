@@ -17,7 +17,7 @@ cache = Dalli::Client.new
 
 doc = Nokogiri::HTML(open(ENV['KICKSTARTER_URL']))
 
-title = doc.css('.title h2 a').first.content
+title = doc.css('h2.normal.mb1 a').first.content
 
 backers = doc.css('#backers_count').first['data-backers-count'].to_i
 pledged = doc.css('#pledged data').first.content
