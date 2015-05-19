@@ -21,7 +21,7 @@ title = doc.css('h2.normal.mb1 a').first.content
 
 backers = doc.css('#backers_count').first['data-backers-count'].to_i
 pledged = doc.css('#pledged data').first.content
-target = doc.css('#pledged~span.money').first.content
+target = doc.css('span.bold.h5 > .money.usd').first.content
 
 pledged_i = pledged.gsub(/,|\$|£/, '').to_i
 target_i = target.gsub(/,|\$|£/, '').to_i
